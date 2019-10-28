@@ -17,7 +17,7 @@ int (*get_format(char in))(va_list)
 	i = 0;
 	while (i < 2)
 	{
-		if(in == fmts[i].fmt[0])
+		if (in == fmts[i].fmt[0])
 			return (fmts[i].f);
 		i++;
 	}
