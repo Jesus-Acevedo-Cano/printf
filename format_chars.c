@@ -7,11 +7,23 @@
  * On error, -1 is returned, and errno is set appropriately.
  */
 
+int _putchar(char c)
+{
+        return (write(1, &c, 1));
+}
+
+/**
+ * _putc - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+
 int _putc(va_list c)
 {
-	char out = va_arg(c, int);
-
-	return (write(1, &out, 1));
+	_putchar(va_arg(c, int));
+	return (1);
 }
 
 /**
@@ -29,7 +41,7 @@ int _puts(va_list str)
 	i = 0;
 	while (*(out + i))
 	{
-		_putc(*out);
+		_putchar(out[i]);
 		i++;
 	}
 	return (i);
@@ -38,9 +50,11 @@ int _puts(va_list str)
 /**
  * _putmod - Places a percentage symbol
  * Return: Nothing
+ *
  */
 
-int _putmod(va_list mod)
+int _putmod()
 {
-	return (_putc('%'));
+	_putchar('%');
+	return (1);
 }

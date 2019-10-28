@@ -1,22 +1,23 @@
 #include "holberton.h"
+
 /**
  * get_format - Get the adecuate input format
  * @in: Input format
  * Return: Pointer to function
  */
-int (*get_format(char *in))(va_list)
+int (*get_format(char in))(va_list)
 {
-	int i;
 	fmt fmts[] = {
 		{"c", _putc},
 		{"s", _puts},
-		{NULL, _putmod}
-	}
+		{NULL, _putmod},
+	};
+	int i;
 
 	i = 0;
 	while (i < 2)
 	{
-		if(strcmp(in, fmts[i] == 0))
+		if(in == fmts[i].fmt[0])
 			return (fmts[i].f);
 		i++;
 	}
@@ -31,29 +32,29 @@ int (*get_format(char *in))(va_list)
  */
 int _printf(const char *format, ...)
 {
-	unsigned int i;
-	int c_count;
+	int i = 0;
+	int c_count = 0;
+	int (*fmt)(va_list);
 	va_list args;
 
-	c_count = 0;
-	if (format && format[i] != NULL)
+	if (format && format[i] != '\0')
 	{
 		va_start(args, format);
 		for (i = 0; *(format + i) != '\0'; i++)
 		{
 			if (*(format + i) == '%')
 			{
-				c_count = get_format(args);
+				fmt = get_format(format[i + 1]);
+				c_count = fmt(args);
 				i++;
 			}
 			else
 			{
-				_putc(*(format + i));
+				_putchar(*(format + i));
 				c_count++;
 			}
 		}
 		va_end(args);
-		_putc('\n');
 	}
 	return (c_count);
 }

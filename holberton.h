@@ -7,15 +7,16 @@
 #include <stdarg.h>
 #include <string.h>
 
+int _putchar(char c);
 int _putc(va_list c);
 int _puts(va_list str);
-int _putmod(va_list mod);
+int _putmod();
 int _printf(const char *format, ...);
 
 typedef struct format
 {
 	char *fmt;
-	int (*f)(va_list);
+	int (*f)();
 } fmt;
 
 #endif
