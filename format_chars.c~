@@ -1,0 +1,46 @@
+#include "holberton.h"
+/**
+ * _putc - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+
+int _putc(va_list c)
+{
+	char out = va_arg(c, int);
+
+	return (write(1, &out, 1));
+}
+
+/**
+ * _puts - function to print an array char by char
+ * @str: for characters
+ * Return: Always 0 (Success)
+ */
+
+int _puts(va_list str)
+{
+	int i;
+	char *out;
+
+	out = va_arg(str, char *);
+	i = 0;
+	while (*(str + i) != 0)
+	{
+		/* i += i + NUMBER */
+		i += _putc(*str);
+	}
+	return (i);
+}
+
+/**
+ * _putmod - Places a percentage symbol
+ * Return: Nothing
+ */
+
+int _putmod(va_list mod)
+{
+	return (_putc('%'));
+}
