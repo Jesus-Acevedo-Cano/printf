@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * _putc - writes the character c to stdout
+ * _putchar- writes the character c to stdout
  * @c: The character to print
  *
  * Return: On success 1.
@@ -9,7 +9,7 @@
 
 int _putchar(char c)
 {
-        return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
 /**
@@ -53,7 +53,7 @@ int _puts(va_list str)
  *
  */
 
-int _putmod()
+int _putmod(void)
 {
 	_putchar('%');
 	return (1);
