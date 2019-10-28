@@ -13,6 +13,14 @@ int _puts(va_list str);
 int _putmod(void);
 int _printf(const char *format, ...);
 
+/**
+ * struct format - structure for functions in printf
+ * @fmt: char pointer
+ * @f: pointer to a function
+ *
+ * Description: printf structure
+ */
+
 typedef struct format
 {
 	char *fmt;
