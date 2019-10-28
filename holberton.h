@@ -10,7 +10,7 @@
 int _putchar(char c);
 int _putc(va_list c);
 int _puts(va_list str);
-int _putmod();
+int _putmod(void);
 int _printf(const char *format, ...);
 
 typedef struct format
