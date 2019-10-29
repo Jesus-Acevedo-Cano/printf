@@ -39,9 +39,9 @@ int _putint(va_list n)
 		num *= -1;
 		d_count++;
 	}
-	for (i; num % _pow(10, i) != num; i++)
+	for (; num % _pow(10, i) != num; i++)
 		d_count++;
-	for (i; i > 0; i--)
+	for (; i > 0; i--)
 	{
 		out = ((num % _pow(10, i)) / _pow(10, i - 1)) + '0';
 		_putchar(out);
