@@ -38,6 +38,11 @@ int _puts(va_list str)
 	char *out;
 
 	out = va_arg(str, char *);
+	if (out == NULL)
+	{
+		i = write(1, "(null)", 6);
+		return (i);
+	}
 	i = 0;
 	while (*(out + i))
 	{

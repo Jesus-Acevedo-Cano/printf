@@ -10,12 +10,15 @@ int (*get_format(char in))(va_list)
 	fmt fmts[] = {
 		{"c", _putc},
 		{"s", _puts},
-		{NULL, _putmod},
+		{"%", _putmod},
+		{NULL, NULL}
 	};
 	int i;
 
+	if (in == '\0')
+		return (NULL);
 	i = 0;
-	while (i < 2)
+	while (i < 3)
 	{
 		if (in == fmts[i].fmt[0])
 			return (fmts[i].f);
@@ -33,19 +36,34 @@ int (*get_format(char in))(va_list)
 int _printf(const char *format, ...)
 {
 	int i = 0;
-	int c_count = 0;
+	int c_count = -1;
+	int check = 0;
 	int (*fmt)(va_list);
 	va_list args;
 
 	if (format && format[i] != '\0')
 	{
+		c_count = 0;
 		va_start(args, format);
 		for (i = 0; *(format + i) != '\0'; i++)
 		{
 			if (*(format + i) == '%')
 			{
+				if (format[i + 1] == '\0')
+				{
+					c_count = -1;
+					break;
+				}
 				fmt = get_format(format[i + 1]);
-				c_count = fmt(args);
+				if (fmt == NULL)
+				{
+					c_count += _putchar('%');
+					c_count += _putchar(format[i + 1]);
+				}
+				else
+				{
+					c_count = fmt(args);
+				}
 				i++;
 			}
 			else
