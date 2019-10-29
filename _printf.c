@@ -11,6 +11,8 @@ int (*get_format(char in))(va_list)
 		{"c", _putc},
 		{"s", _puts},
 		{"%", _putmod},
+		{"d", _putint},
+		{"i", _putint},
 		{NULL, NULL}
 	};
 	int i;
@@ -18,7 +20,7 @@ int (*get_format(char in))(va_list)
 	if (in == '\0')
 		return (NULL);
 	i = 0;
-	while (i < 3)
+	while (i < 5)
 	{
 		if (in == fmts[i].fmt[0])
 			return (fmts[i].f);

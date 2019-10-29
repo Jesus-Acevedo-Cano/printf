@@ -13,11 +13,10 @@ int _putchar(char c)
 }
 
 /**
- * _putc - writes the character c to stdout
+ * _putc - Prints a character
  * @c: The character to print
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: See _putchar
  */
 
 int _putc(va_list c)

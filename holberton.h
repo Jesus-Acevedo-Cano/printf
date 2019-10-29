@@ -11,6 +11,8 @@ int _putchar(char c);
 int _putc(va_list c);
 int _puts(va_list str);
 int _putmod(void);
+int _pow(int x, int y);
+int _putint(va_list n);
 int _printf(const char *format, ...);
 
 /**
