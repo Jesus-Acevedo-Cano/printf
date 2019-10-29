@@ -37,7 +37,6 @@ int _printf(const char *format, ...)
 {
 	int i = 0;
 	int c_count = -1;
-	int check = 0;
 	int (*fmt)(va_list);
 	va_list args;
 
@@ -62,7 +61,7 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					c_count = fmt(args);
+					c_count += fmt(args);
 				}
 				i++;
 			}
