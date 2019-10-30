@@ -1,0 +1,28 @@
+.TH _printf(3) 29 Oct. 2019 Version 1.0
+.SH NAME
+.IP _printf
+.B- Formatted output conversión
+.SH SYNOPSIS
+.B #include Holberton.h
+.PP
+.B int _printf(const char *format, ...);
+.SH DESCRIPTION
+.B This is a kind of function like the printf in a version adapted to Holberton School's exercise that represent only a part of the powerful printf function. The function _printf produce output according to a format: Write output to stdout, the standard output stream. The function write the output under the control of a format  string  that  specifies  how  subsequent arguments.
+.IP Return value
+.B The function _printf returns the number of characters printed (excluding the null byte used to end output to strings).
+.IP Format of the formnat string
+.B The format is string of characters with a determinate format, that beginning and ending in its shift state if exist.
+.SH OPTIONS
+.IP %c
+.B Print a charcater int _putc(va_list c);
+.IP %s
+.B Print a carácter string int _puts(va_list str);
+.IP %i 
+.B Print an integer in base 10 int _putint(va_list n);
+.TP %d
+.B Print a decimal (base 10) number int _putint(va_list n);
+.SH BUGS
+.B No known bugs
+.SH AUTHOR
+.B Jaime Andrés Gálvez Villamarin, Jesus Evelio Acevedo Cano, Paula Sotelo
+
