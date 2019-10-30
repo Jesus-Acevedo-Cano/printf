@@ -1,32 +1,36 @@
-This function simulate the function printf in c.
-The requirements of the project:
-General
-Allowed editors: vi, vim, emacs
-All your files will be compiled on Ubuntu 14.04 LTS
-Your programs and functions will be compiled with gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic
-All your files should end with a new line
-A README.md file, at the root of the folder of the project is mandatory
-Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
-You are not allowed to use global variables
-No more than 5 functions per file
-In the following examples, the main.c files are shown as examples. You can use them to test your functions, but you dont have to push them to your repo (if you do we wont take them into account). We will use our own main.c files at compilation. Our main.c files might be different from the one shown in the examples
-The prototypes of all your functions should be included in your header file called holberton.h
-Dont forget to push your header file
-All your header files should be include guarded
-Note that we will not provide the _putchar function for this project.
-Authorized functions and macros
-write (man 2 write)
-malloc (man 3 malloc)
-free (man 3 free)
-va_start (man 3 va_start)
-va_end (man 3 va_end)
-va_copy (man 3 va_copy)
-va_arg (man 3 va_arg)
+# DEVELOPMENT OF FUNCTION _printf #
+===================================
 
-Compilation
-Your code will be compiled this way:
-$ gcc -Wall -Werror -Wextra -pedantic *.c
-As a consequence, be careful not to push any c file containing a main function in the root directory of your project (you could have a test folder containing all your tests files including main functions)
-Our main files will include your main header file (holberton.h): #include holberton.h
-You might want to look at the gcc flag -Wno-format when testing with your _printf and the standard printf.
-Big challenge work in team but we are amazing people.
+This is a kind of function like the printf in a version adapted to Holberton School's exercise that represent only a part of the powerful printf function. The function _printf produce output according to a format: Write output to stdout, the standard output stream. The function write the output under the control of a format  string  that  specifies  how  subsequent arguments.
+
+## FUNCTIONS ##
+---------------
+
+### int (*get_format(char in))(va_list); ###
+
+Function to knows the format of the specifier (c, s, i, d) that we are receiving.
+
+### int _putchar(char c); ###
+
+This is the main function to print character by character.
+
+### int _putc(va_list c); ###
+
+Fuction given in our _printf to print characters using the specifier c.
+
+### int _puts(va_list str); ###
+
+Function given in our _printf to print a string using the specifier s.
+
+### int _putmod(void); ###
+
+Function given by default to print a module sign if the condition are true.
+
+### int _putint(va_list n); ###
+
+Function inside _printf to print integers using the specifiers i or d.
+
+## AUTORS ##
+-------------
+
+Jaime Andrés Gálvez Villamarin, Jesus Evelio Acevedo Cano, Paula Sotelo.
