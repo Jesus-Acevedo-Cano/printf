@@ -6,12 +6,9 @@
  */
 int _putint(va_list n)
 {
-	long int i = 0;
-	long int d_count = 0;
+	long int i, d_count = 0, m1, m2;
 	int num = va_arg(n, int);
-	long int m1, m2;
 	unsigned long int pow;
-	char out;
 
 	if (num == 0)
 	{
@@ -30,18 +27,16 @@ int _putint(va_list n)
 	}
 	m2 = m1;
 	pow = 1;
-	while (m1 != 0)
+	for (i = 0; m1 != 0; i++)
 	{
 		m1 = m1 / 10;
-		i++;
 		pow = pow * 10;
 	}
 	pow /= 10;
 	d_count = i;
 	while (i != 0)
 	{
-		out = (m2 / pow) + '0';
-		_putchar(out);
+		_putchar((m2 / pow) + '0');
 		m2 = m2 % pow;
 		i--;
 		pow = pow / 10;
